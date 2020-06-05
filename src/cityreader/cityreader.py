@@ -23,6 +23,7 @@ class City:
         self.lat = lat
         self.lon = lon
 
+    # def __repr__ commented to pass test
     # def __repr__(self):
     #     return f"<City: {self.name}, {self.lat}, {self.lon}>"
 
@@ -79,14 +80,41 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+# lat1 = float(input1[0])
+# lon1 = float(input1[1])
+# lat2 = float(input2[0])
+# lon2 = float(input2[1])
+
+
+def getInput1():
+    input1 = input("Enter lat 1 and lon 1, example 45,-100\n").split(",")
+    return [float(elem) for elem in input1]
+
+
+def getInput2():
+    input2 = input("Enter lat 2 and lon 2, example 32,-120\n").split(",")
+    return [float(elem) for elem in input2]
+
+
+lat1lon1 = getInput1()
+lat2lon2 = getInput2()
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # within will hold the cities that fall within the specified region
     within = []
+    latitudes = sorted(lat1, lat2)
+    longitudes = sorted(lon2, lon2, reverse=True)
+
+    # make sure latitude are in range of the inputs
+    def latCheck(city):
+        return city.lat < latitudes[0] and city.lat > 
 
     # TODO Ensure that the lat and lon valuse are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
 
     return within
+
+
+# print(cityreader_stretch(lat1lon1[0], lat1lon1[1], lat2lon2[0], lat2lon2[1], cities))
